@@ -83,6 +83,12 @@ async function executeCommand(command) {
     case "low_stock":
       return getLowStock();
 
+    case "update_product":
+      return updateProduct(command);
+
+    case "delete_product":
+      return deleteProduct(command);
+
     default:
       throw new Error("Unknown command");
 
@@ -262,6 +268,39 @@ async function getLowStock(){
   return{
     response:`Low stock items:\n${list}`,
     data:products
+  };
+
+}
+
+async function updateProduct(cmd){
+
+  const product = await Product.findOne({
+    name: new RegExp(`^${cmd.product_name}$`, "i")
+  });
+
+  if(!product) throw new Error(`Product ${cmd.product_name} not found`);
+
+  if(cmd.price !== undefined) product.price = cmd.price;
+  if(cmd.quantity !== undefined) product.quantity = cmd.quantity;
+  await product.save();
+
+  return {
+    response: `Updated ${product.name} — Price: ₹${product.price}, Quantity: ${product.quantity}`,
+    data: product
+  };
+
+}
+
+async function deleteProduct(cmd){
+
+  const product = await Product.findOneAndDelete({
+    name: new RegExp(`^${cmd.product_name}$`, "i")
+  });
+
+  if(!product) throw new Error(`Product ${cmd.product_name} not found`);
+
+  return {
+    response: `Deleted product: ${product.name}`
   };
 
 }

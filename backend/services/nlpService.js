@@ -22,7 +22,11 @@ Examples:
 "Show me laptop details" -> {"action":"view_product","product_name":"laptop"}
 "List all products" -> {"action":"list_products"}
 "Create product phone with price 500" -> {"action":"create_product","product_name":"phone","price":500}
-"Show low stock items" -> {"action":"low_stock"}`;
+"Show low stock items" -> {"action":"low_stock"}
+"Make shampoo price 500" -> {"action":"update_product","product_name":"shampoo","price":500}
+"Update phone price to 999" -> {"action":"update_product","product_name":"phone","price":999}
+"Change laptop quantity to 100" -> {"action":"update_product","product_name":"laptop","quantity":100}
+"Delete product chair" -> {"action":"delete_product","product_name":"chair"}`;
 
 const findBestMatchProduct = async (searchName) => {
   if (!searchName) return null;

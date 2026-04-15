@@ -1,6 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
+import ProtectedRoute from "./components/common/ProtectedRoute";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import ForgotPassword from "./components/auth/ForgotPassword";
+import ResetPassword from "./components/auth/ResetPassword";
 
 import Dashboard from "./components/dashboard/Dashboard";
 import ProductList from "./components/products/ProductList";
@@ -12,41 +17,30 @@ import ReportGenerator from "./components/reports/ReportGenerator";
 import Invoice from "./components/invoice/Invoice";
 import InvoiceList from "./components/invoice/InvoiceList";
 
-
 function App(){
 
 return(
 
 <BrowserRouter>
-
-<Layout>
-
 <Routes>
 
-<Route path="/" element={<Navigate to="/dashboard"/>}/>
+<Route path="/login" element={<Login/>}/>
+<Route path="/register" element={<Register/>}/>
+<Route path="/forgot-password" element={<ForgotPassword/>}/>
+<Route path="/reset-password/:token" element={<ResetPassword/>}/>
 
-<Route path="/dashboard" element={<Dashboard/>}/>
-
-<Route path="/products" element={<ProductList/>}/>
-
-<Route path="/stock" element={<StockManagement/>}/>
-
-<Route path="/voice" element={<VoiceInput/>}/>
-
-<Route path="/chat" element={<ChatInterface/>}/>
-
-<Route path="/reports" element={<Reports/>}/>
-
-<Route path="/report-generator" element={<ReportGenerator/>}/>
-
-<Route path="/invoice" element={<Invoice/>}/>
-
-<Route path="/invoices" element={<InvoiceList/>}/>
+<Route path="/" element={<ProtectedRoute><Layout><Navigate to="/dashboard"/></Layout></ProtectedRoute>}/>
+<Route path="/dashboard" element={<ProtectedRoute><Layout><Dashboard/></Layout></ProtectedRoute>}/>
+<Route path="/products" element={<ProtectedRoute><Layout><ProductList/></Layout></ProtectedRoute>}/>
+<Route path="/stock" element={<ProtectedRoute><Layout><StockManagement/></Layout></ProtectedRoute>}/>
+<Route path="/voice" element={<ProtectedRoute><Layout><VoiceInput/></Layout></ProtectedRoute>}/>
+<Route path="/chat" element={<ProtectedRoute><Layout><ChatInterface/></Layout></ProtectedRoute>}/>
+<Route path="/reports" element={<ProtectedRoute><Layout><Reports/></Layout></ProtectedRoute>}/>
+<Route path="/report-generator" element={<ProtectedRoute><Layout><ReportGenerator/></Layout></ProtectedRoute>}/>
+<Route path="/invoice" element={<ProtectedRoute><Layout><Invoice/></Layout></ProtectedRoute>}/>
+<Route path="/invoices" element={<ProtectedRoute><Layout><InvoiceList/></Layout></ProtectedRoute>}/>
 
 </Routes>
-
-</Layout>
-
 </BrowserRouter>
 
 )

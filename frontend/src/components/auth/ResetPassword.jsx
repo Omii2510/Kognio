@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { Eye, EyeOff, Check, X } from 'lucide-react';
-import { useAuth } from '../../hooks/useAuth';
+import api from '../../services/api';
 
 const rules = [
   { label: 'At least 8 characters', test: (p) => p.length >= 8 },
@@ -11,15 +11,15 @@ const rules = [
   { label: 'One special character (!@#$...)', test: (p) => /[^A-Za-z0-9]/.test(p) },
 ];
 
-export default function Register() {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+export default function ResetPassword() {
+  const { token } = useParams();
+  const navigate = useNavigate();
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { register } = useAuth();
-  const navigate = useNavigate();
 
-  const allRulesPassed = rules.every(r => r.test(formData.password));
+  const allRulesPassed = rules.every(r => r.test(password));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,10 +27,10 @@ export default function Register() {
     setLoading(true);
     setError('');
     try {
-      await register(formData);
-      navigate('/dashboard');
+      await api.post(`/auth/reset-password/${token}`, { password });
+      navigate('/login');
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed');
+      setError(err.response?.data?.message || 'Reset failed');
     } finally {
       setLoading(false);
     }
@@ -42,8 +42,8 @@ export default function Register() {
 
         <div className="text-center mb-8">
           <img src="/logo.png" alt="Kognio" className="h-24 w-24 object-contain mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-gray-800">Create account</h1>
-          <p className="text-gray-500 text-sm mt-1">Start managing your inventory with AI</p>
+          <h1 className="text-2xl font-bold text-gray-800">Set new password</h1>
+          <p className="text-gray-500 text-sm mt-1">Choose a strong password for your account</p>
         </div>
 
         {error && (
@@ -54,35 +54,13 @@ export default function Register() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">Full Name</label>
-            <input
-              type="text"
-              placeholder="John Doe"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">Email</label>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
-              required
-            />
-          </div>
-          <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">Password</label>
+            <label className="text-sm font-medium text-gray-700 block mb-1">New Password</label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••"
-                value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
                 required
               />
@@ -95,10 +73,10 @@ export default function Register() {
               </button>
             </div>
 
-            {formData.password && (
+            {password && (
               <div className="mt-3 space-y-1">
                 {rules.map((rule, i) => {
-                  const passed = rule.test(formData.password);
+                  const passed = rule.test(password);
                   return (
                     <div key={i} className={`flex items-center gap-2 text-xs ${passed ? 'text-green-600' : 'text-gray-400'}`}>
                       {passed ? <Check size={12} /> : <X size={12} />}
@@ -115,13 +93,12 @@ export default function Register() {
             disabled={loading || !allRulesPassed}
             className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl font-semibold text-sm hover:opacity-90 transition disabled:opacity-60"
           >
-            {loading ? 'Creating account...' : 'Create Account'}
+            {loading ? 'Resetting...' : 'Reset Password'}
           </button>
         </form>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Already have an account?{' '}
-          <Link to="/login" className="text-indigo-600 font-medium hover:underline">Sign In</Link>
+          <Link to="/login" className="text-indigo-600 font-medium hover:underline">Back to Login</Link>
         </p>
 
       </div>

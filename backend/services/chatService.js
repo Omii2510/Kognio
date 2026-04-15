@@ -57,7 +57,9 @@ function validateIntent(intent){
     "list_products",
     "inventory_value",
     "view_product",
-    "low_stock" // ✅ ADDED
+    "low_stock",
+    "update_product",
+    "delete_product"
   ];
 
   if(!allowedActions.includes(intent.action)){
@@ -136,6 +138,33 @@ User: show inventory
 User: show low stock items
 {
 "action":"low_stock"
+}
+
+User: make mango price 500
+{
+"action":"update_product",
+"product_name":"mango",
+"price":500
+}
+
+User: update laptop price to 999
+{
+"action":"update_product",
+"product_name":"laptop",
+"price":999
+}
+
+User: change shampoo price to 200
+{
+"action":"update_product",
+"product_name":"shampoo",
+"price":200
+}
+
+User: delete product chair
+{
+"action":"delete_product",
+"product_name":"chair"
 }
 
 User: what's my inventory value

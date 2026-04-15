@@ -28,6 +28,12 @@ exports.processVoiceCommand = async (req, res) => {
       case 'low_stock':
         result = await handleLowStock();
         break;
+      case 'update_product':
+        result = await handleUpdateProduct(intent);
+        break;
+      case 'delete_product':
+        result = await handleDeleteProduct(intent);
+        break;
       default:
         return res.status(400).json({ message: 'Command not understood' });
     }
@@ -129,6 +135,34 @@ const handleLowStock = async () => {
   return await Product.find({ $expr: { $lte: ['$quantity', '$minStockLevel'] } });
 };
 
+const handleUpdateProduct = async (intent) => {
+  let product;
+  if (intent.matched_product) {
+    product = await Product.findById(intent.matched_product._id);
+  } else {
+    product = await Product.findOne({ name: new RegExp(intent.product_name, 'i') });
+  }
+  if (!product) throw new Error(`Product "${intent.product_name}" not found.`);
+
+  if (intent.price !== undefined) product.price = intent.price;
+  if (intent.quantity !== undefined) product.quantity = intent.quantity;
+  if (intent.category !== undefined) product.category = intent.category;
+  await product.save();
+  await checkAndCreateAlert(product);
+  return product;
+};
+
+const handleDeleteProduct = async (intent) => {
+  let product;
+  if (intent.matched_product) {
+    product = await Product.findByIdAndDelete(intent.matched_product._id);
+  } else {
+    product = await Product.findOneAndDelete({ name: new RegExp(intent.product_name, 'i') });
+  }
+  if (!product) throw new Error(`Product "${intent.product_name}" not found.`);
+  return product;
+};
+
 const generateResponse = (intent, result) => {
   const productName = intent.matched_product ? `${intent.product_name} (matched from "${intent.original_name}")` : intent.product_name;
   
@@ -145,6 +179,10 @@ const generateResponse = (intent, result) => {
       return `Created product: ${result.name}`;
     case 'low_stock':
       return `${result.length} products are low on stock`;
+    case 'update_product':
+      return `Updated ${result.name} — Price: ₹${result.price}, Quantity: ${result.quantity}`;
+    case 'delete_product':
+      return `Deleted product: ${result.name}`;
     default:
       return 'Command processed';
   }
