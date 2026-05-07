@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="Kognio — Activity Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="500" y="10" width="600" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- ===================== FLOW 1: USER AUTH ===================== -->
+    <mxCell id="f1_title" value="1. User Authentication" style="text;html=1;strokeColor=none;fillColor=#dae8fc;align=center;fontSize=13;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="55" width="200" height="30" as="geometry" />
+    </mxCell>
+
+    <mxCell id="f1_start" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="140" y="100" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_visit" value="User visits app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="110" y="160" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_d1" value="Has JWT token?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="110" y="220" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_dashboard" value="Load Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="310" y="230" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_login" value="Redirect to /login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="110" y="310" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_creds" value="Enter email &amp; password" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="110" y="370" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_d2" value="Valid credentials?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="110" y="430" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_err" value="Show error message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="310" y="440" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_token" value="Store JWT token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="110" y="520" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f1_end" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="140" y="590" width="40" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Auth arrows -->
+    <mxCell id="a1" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1_start" target="f1_visit" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a2" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1_visit" target="f1_d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a3" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f1_d1" target="f1_dashboard" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a4" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f1_d1" target="f1_login" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a5" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1_login" target="f1_creds" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a6" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1_creds" target="f1_d2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a7" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f1_d2" target="f1_err" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a8" value="" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" source="f1_err" target="f1_creds" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="510" y="460" /><mxPoint x="510" y="390" /></Array></mxGeometry></mxCell>
+    <mxCell id="a9" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f1_d2" target="f1_token" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a10" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1_token" target="f1_end" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="a10b" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f1_dashboard" target="f1_end" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="390" y="610" /><mxPoint x="160" y="610" /></Array></mxGeometry></mxCell>
+
+    <!-- ===================== FLOW 2: AI CHAT ===================== -->
+    <mxCell id="f2_title" value="2. AI Chat Command" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;fontSize=13;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="560" y="55" width="200" height="30" as="geometry" />
+    </mxCell>
+
+    <mxCell id="f2_start" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="640" y="100" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_msg" value="User sends message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="610" y="160" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_d1" value="Cancel command?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="610" y="220" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_cancel" value="Clear session state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="820" y="230" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_d2" value="Greeting?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="610" y="305" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_greet" value="Return welcome message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="820" y="315" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_d3" value="Multi command?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="610" y="390" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_split" value="Split by AND/comma&#xa;Parse each via Groq AI&#xa;Execute batch commands" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="820" y="395" width="160" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_groq" value="Parse intent via Groq AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="610" y="475" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_d4" value="Valid intent?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="610" y="535" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_unk" value="Return error message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="820" y="545" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_exec" value="Execute command&#xa;(add/remove/create/list&#xa;update/delete/value)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="610" y="620" width="160" height="55" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_alert" value="Check &amp; create stock alert" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="610" y="695" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f2_end" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="640" y="760" width="40" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- AI Chat arrows -->
+    <mxCell id="b1" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_start" target="f2_msg" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b2" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_msg" target="f2_d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b3" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f2_d1" target="f2_cancel" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b4" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f2_d1" target="f2_d2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b5" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f2_d2" target="f2_greet" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b6" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f2_d2" target="f2_d3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b7" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f2_d3" target="f2_split" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b8" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f2_d3" target="f2_groq" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b9" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_groq" target="f2_d4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b10" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f2_d4" target="f2_unk" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b11" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f2_d4" target="f2_exec" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b12" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_exec" target="f2_alert" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b13" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_alert" target="f2_end" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="b14" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_cancel" target="f2_end" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="900" y="780" /><mxPoint x="660" y="780" /></Array></mxGeometry></mxCell>
+    <mxCell id="b15" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_greet" target="f2_end" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="900" y="780" /><mxPoint x="660" y="780" /></Array></mxGeometry></mxCell>
+    <mxCell id="b16" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_split" target="f2_end" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="900" y="780" /><mxPoint x="660" y="780" /></Array></mxGeometry></mxCell>
+    <mxCell id="b17" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f2_unk" target="f2_end" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="900" y="780" /><mxPoint x="660" y="780" /></Array></mxGeometry></mxCell>
+
+    <!-- ===================== FLOW 3: STOCK MANAGEMENT ===================== -->
+    <mxCell id="f3_title" value="3. Stock Management" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=center;fontSize=13;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="1060" y="55" width="200" height="30" as="geometry" />
+    </mxCell>
+
+    <mxCell id="f3_start" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="1140" y="100" width="40" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_open" value="Open Stock Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="160" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_d1" value="Add or Remove?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="220" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_add" value="Enter product + quantity&#xa;POST /api/stock/add" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="980" y="310" width="160" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_rem" value="Enter product + quantity&#xa;POST /api/stock/remove" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="1240" y="310" width="160" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_d2" value="Sufficient stock?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1240" y="385" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_insuf" value="Return insufficient&#xa;stock error" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="1430" y="395" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_update" value="Update product quantity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="480" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_txn" value="Create Transaction record" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="540" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_d3" value="quantity == 0?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="600" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_oos" value="Alert: Out of Stock" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="1310" y="610" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_d4" value="quantity &lt;= minStock?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="685" width="160" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_low" value="Alert: Low Stock" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1310" y="695" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_done" value="Return updated product" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="775" width="160" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="f3_end" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="1140" y="840" width="40" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Stock arrows -->
+    <mxCell id="c1e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_start" target="f3_open" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c2e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_open" target="f3_d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c3e" value="Add" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f3_d1" target="f3_add" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c4e" value="Remove" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f3_d1" target="f3_rem" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c5e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_add" target="f3_update" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c6e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_rem" target="f3_d2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c7e" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f3_d2" target="f3_insuf" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c8e" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f3_d2" target="f3_update" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c9e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_update" target="f3_txn" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c10e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_txn" target="f3_d3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c11e" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#b85450;" edge="1" source="f3_d3" target="f3_oos" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c12e" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f3_d3" target="f3_d4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c13e" value="Yes" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#d6b656;" edge="1" source="f3_d4" target="f3_low" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c14e" value="No" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontColor=#82b366;" edge="1" source="f3_d4" target="f3_done" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="c15e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_oos" target="f3_done" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1390" y="815" /><mxPoint x="1190" y="815" /></Array></mxGeometry></mxCell>
+    <mxCell id="c16e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_low" target="f3_done" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1390" y="815" /><mxPoint x="1190" y="815" /></Array></mxGeometry></mxCell>
+    <mxCell id="c17e" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="f3_done" target="f3_end" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+  </root>
+</mxGraphModel>

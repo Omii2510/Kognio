@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="Kognio — Use Case Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="500" y="10" width="600" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- SYSTEM BOUNDARY -->
+    <mxCell id="sys" value="Kognio System" style="swimlane;fontStyle=1;fontSize=15;fillColor=#f5f5f5;strokeColor=#1a1a2e;startSize=35;rounded=1;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="220" y="60" width="1100" height="1000" as="geometry" />
+    </mxCell>
+
+    <!-- ===== ACTORS ===== -->
+    <mxCell id="actor_user" value="User" style="shape=mxgraph.uml.actor;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="60" y="300" width="50" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_admin" value="Admin" style="shape=mxgraph.uml.actor;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="60" y="600" width="50" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="actor_groq" value="Groq AI" style="shape=mxgraph.uml.actor;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="1400" y="450" width="50" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ===== AUTH USE CASES ===== -->
+    <mxCell id="grp_auth" value="Authentication" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="260" y="80" width="200" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_register" value="Register" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="290" y="125" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_login" value="Login" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="290" y="185" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_forgot" value="Forgot Password" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="290" y="245" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_reset" value="Reset Password" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="290" y="305" width="140" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ===== PRODUCT USE CASES ===== -->
+    <mxCell id="grp_prod" value="Product Management" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="510" y="80" width="200" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_addprod" value="Add Product" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="125" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_viewprod" value="View Products" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="185" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_editprod" value="Edit Product" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="245" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_delprod" value="Delete Product" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="305" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_searchprod" value="Search Product" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="365" width="140" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ===== STOCK USE CASES ===== -->
+    <mxCell id="grp_stock" value="Stock Management" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="760" y="80" width="200" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_addstock" value="Add Stock" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="125" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_remstock" value="Remove Stock" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="185" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_lowstock" value="View Low Stock Alerts" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="245" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_stockval" value="View Stock Value" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="305" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_txnhist" value="View Transaction History" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="365" width="140" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ===== AI CHAT USE CASES ===== -->
+    <mxCell id="grp_chat" value="AI Chat &amp; Voice" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="1010" y="80" width="200" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_chat" value="Chat with AI Assistant" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1040" y="125" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_voice" value="Voice Input" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1040" y="185" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_intent" value="Parse Intent (Groq AI)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1040" y="245" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_batch" value="Batch Commands" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1040" y="305" width="140" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ===== REPORTS USE CASES ===== -->
+    <mxCell id="grp_rep" value="Reports &amp; Analytics" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="260" y="480" width="200" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_dashboard" value="View Dashboard" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="290" y="525" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_reports" value="View Reports" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="290" y="585" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_genrep" value="Generate Report PDF" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="290" y="645" width="140" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ===== INVOICE USE CASES ===== -->
+    <mxCell id="grp_inv" value="Invoice" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="510" y="480" width="200" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_createinv" value="Create Invoice" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="525" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_viewinv" value="View Invoice List" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="585" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_exportinv" value="Export Invoice PDF" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="540" y="645" width="140" height="45" as="geometry" />
+    </mxCell>
+
+    <!-- ===== ALERT USE CASES ===== -->
+    <mxCell id="grp_alert" value="Alerts" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="760" y="480" width="200" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_viewalert" value="View Stock Alerts" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="525" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_dismiss" value="Dismiss Alert" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="585" width="140" height="45" as="geometry" />
+    </mxCell>
+    <mxCell id="uc_autoalert" value="Auto-create Alert&#xa;(Low/Out of Stock)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="790" y="645" width="140" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ===== USER → USE CASES ===== -->
+    <mxCell id="u_r1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_register" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_login" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r3" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_forgot" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r4" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_viewprod" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r5" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_addstock" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r6" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_chat" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r7" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_voice" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r8" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_dashboard" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r9" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_createinv" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r10" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_viewalert" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="u_r11" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="actor_user" target="uc_reports" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ===== ADMIN → USE CASES ===== -->
+    <mxCell id="ad_r1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" edge="1" source="actor_admin" target="uc_addprod" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="ad_r2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" edge="1" source="actor_admin" target="uc_editprod" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="ad_r3" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" edge="1" source="actor_admin" target="uc_delprod" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="ad_r4" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" edge="1" source="actor_admin" target="uc_remstock" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="ad_r5" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" edge="1" source="actor_admin" target="uc_dismiss" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="ad_r6" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" edge="1" source="actor_admin" target="uc_genrep" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ===== GROQ AI → USE CASES ===== -->
+    <mxCell id="gr_r1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="actor_groq" target="uc_intent" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="gr_r2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="actor_groq" target="uc_batch" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ===== INCLUDE / EXTEND RELATIONS ===== -->
+    <mxCell id="inc1" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;fontStyle=2;fontSize=10;" edge="1" source="uc_voice" target="uc_chat" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="inc2" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;fontStyle=2;fontSize=10;" edge="1" source="uc_chat" target="uc_intent" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="inc3" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;fontStyle=2;fontSize=10;" edge="1" source="uc_addstock" target="uc_autoalert" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="inc4" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;fontStyle=2;fontSize=10;" edge="1" source="uc_remstock" target="uc_autoalert" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="inc5" value="&lt;&lt;extend&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d6b656;fontColor=#d6b656;fontStyle=2;fontSize=10;" edge="1" source="uc_exportinv" target="uc_createinv" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="inc6" value="&lt;&lt;extend&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d6b656;fontColor=#d6b656;fontStyle=2;fontSize=10;" edge="1" source="uc_genrep" target="uc_reports" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+  </root>
+</mxGraphModel>
