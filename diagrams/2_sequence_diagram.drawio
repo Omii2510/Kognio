@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="Kognio — Sequence Diagrams" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="500" y="10" width="600" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- ===================== SECTION 1: LOGIN ===================== -->
+    <mxCell id="s1_title" value="1. User Login Flow" style="text;html=1;strokeColor=none;fillColor=#dae8fc;align=left;fontSize=14;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="40" y="60" width="220" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- Lifeline Headers -->
+    <mxCell id="l1_user" value="User" style="shape=mxgraph.uml.actor;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="60" y="110" width="40" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="l1_fe" value="Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="220" y="120" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l1_api" value="Express API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="420" y="120" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l1_db" value="MongoDB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="120" width="100" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Lifelines (vertical dashed lines) -->
+    <mxCell id="ll1_user" value="" style="edgeStyle=none;dashed=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points" />
+        <mxPoint x="80" y="170" as="sourcePoint" />
+        <mxPoint x="80" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll1_fe" value="" style="edgeStyle=none;dashed=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="270" y="160" as="sourcePoint" />
+        <mxPoint x="270" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll1_api" value="" style="edgeStyle=none;dashed=1;strokeColor=#82b366;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="470" y="160" as="sourcePoint" />
+        <mxPoint x="470" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll1_db" value="" style="edgeStyle=none;dashed=1;strokeColor=#d6b656;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="670" y="160" as="sourcePoint" />
+        <mxPoint x="670" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Step 1: User enters credentials -->
+    <mxCell id="m1" value="Enter email &amp; password" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontColor=#1a1a2e;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="80" y="210" as="sourcePoint" />
+        <mxPoint x="270" y="210" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <!-- Step 2: POST login -->
+    <mxCell id="m2" value="POST /api/auth/login" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontColor=#1a1a2e;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="270" y="240" as="sourcePoint" />
+        <mxPoint x="470" y="240" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <!-- Step 3: findOne -->
+    <mxCell id="m3" value="findOne({ email })" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontColor=#1a1a2e;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="470" y="270" as="sourcePoint" />
+        <mxPoint x="670" y="270" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <!-- Step 4: return user -->
+    <mxCell id="m4" value="User document" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontColor=#1a1a2e;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="670" y="300" as="sourcePoint" />
+        <mxPoint x="470" y="300" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <!-- Step 5: bcrypt compare -->
+    <mxCell id="m5" value="bcrypt.compare(password)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;fontColor=#9673a6;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="470" y="330" as="sourcePoint" />
+        <mxPoint x="470" y="330" as="targetPoint" />
+        <Array as="points">
+          <mxPoint x="510" y="330" />
+          <mxPoint x="510" y="350" />
+          <mxPoint x="470" y="350" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <!-- Step 6: return token -->
+    <mxCell id="m6" value="{ token, user }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontColor=#1a1a2e;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="470" y="380" as="sourcePoint" />
+        <mxPoint x="270" y="380" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <!-- Step 7: store token -->
+    <mxCell id="m7" value="Store JWT in AuthContext" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontColor=#6c8ebf;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="270" y="410" as="sourcePoint" />
+        <mxPoint x="270" y="410" as="targetPoint" />
+        <Array as="points">
+          <mxPoint x="310" y="410" />
+          <mxPoint x="310" y="430" />
+          <mxPoint x="270" y="430" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <!-- Step 8: redirect -->
+    <mxCell id="m8" value="Redirect to /dashboard" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontColor=#1a1a2e;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="270" y="460" as="sourcePoint" />
+        <mxPoint x="80" y="460" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+
+    <!-- ===================== SECTION 2: AI CHAT ===================== -->
+    <mxCell id="s2_title" value="2. AI Chat Flow" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;fontSize=14;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="40" y="590" width="220" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- Lifeline Headers -->
+    <mxCell id="l2_user" value="User" style="shape=mxgraph.uml.actor;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="60" y="640" width="40" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="l2_fe" value="ChatInterface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="200" y="650" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l2_api" value="Express API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="390" y="650" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l2_cs" value="chatService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="580" y="650" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l2_groq" value="Groq AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="770" y="650" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l2_db" value="MongoDB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="960" y="650" width="110" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Lifelines -->
+    <mxCell id="ll2_user" value="" style="dashed=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="80" y="700" as="sourcePoint" />
+        <mxPoint x="80" y="1100" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll2_fe" value="" style="dashed=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="255" y="690" as="sourcePoint" />
+        <mxPoint x="255" y="1100" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll2_api" value="" style="dashed=1;strokeColor=#82b366;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="445" y="690" as="sourcePoint" />
+        <mxPoint x="445" y="1100" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll2_cs" value="" style="dashed=1;strokeColor=#d6b656;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="635" y="690" as="sourcePoint" />
+        <mxPoint x="635" y="1100" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll2_groq" value="" style="dashed=1;strokeColor=#b85450;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="825" y="690" as="sourcePoint" />
+        <mxPoint x="825" y="1100" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll2_db" value="" style="dashed=1;strokeColor=#d6b656;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1015" y="690" as="sourcePoint" />
+        <mxPoint x="1015" y="1100" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Chat messages -->
+    <mxCell id="cm1" value="Type message (e.g. add 10 laptops)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="80" y="730" as="sourcePoint" />
+        <mxPoint x="255" y="730" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm2" value="POST /api/chat { message, sessionId }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="255" y="760" as="sourcePoint" />
+        <mxPoint x="445" y="760" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm3" value="chat(message, sessionId)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="445" y="790" as="sourcePoint" />
+        <mxPoint x="635" y="790" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm4" value="Product.find() — inventory summary" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="635" y="820" as="sourcePoint" />
+        <mxPoint x="1015" y="820" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm5" value="Products list" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1015" y="850" as="sourcePoint" />
+        <mxPoint x="635" y="850" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm6" value="parseIntent(message, summary)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="635" y="880" as="sourcePoint" />
+        <mxPoint x="825" y="880" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm7" value="{ action, product_name, quantity }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="825" y="910" as="sourcePoint" />
+        <mxPoint x="635" y="910" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm8" value="{ type: command, action: add_stock }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="635" y="940" as="sourcePoint" />
+        <mxPoint x="445" y="940" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm9" value="Update product quantity + create Transaction" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="445" y="970" as="sourcePoint" />
+        <mxPoint x="1015" y="970" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm10" value="checkAndCreateAlert()" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="445" y="1000" as="sourcePoint" />
+        <mxPoint x="1015" y="1000" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm11" value="{ response: Added 10 units to laptop }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="445" y="1030" as="sourcePoint" />
+        <mxPoint x="255" y="1030" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="cm12" value="Display AI response" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="255" y="1060" as="sourcePoint" />
+        <mxPoint x="80" y="1060" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+
+    <!-- ===================== SECTION 3: FORGOT PASSWORD ===================== -->
+    <mxCell id="s3_title" value="3. Forgot Password Flow" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=left;fontSize=14;fontStyle=1;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="60" width="240" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- Lifeline Headers -->
+    <mxCell id="l3_user" value="User" style="shape=mxgraph.uml.actor;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="110" width="40" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="l3_fe" value="Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1250" y="120" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l3_api" value="Express API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1420" y="120" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="l3_mail" value="Gmail SMTP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1560" y="120" width="100" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Lifelines -->
+    <mxCell id="ll3_user" value="" style="dashed=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1130" y="170" as="sourcePoint" />
+        <mxPoint x="1130" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll3_fe" value="" style="dashed=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1300" y="160" as="sourcePoint" />
+        <mxPoint x="1300" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll3_api" value="" style="dashed=1;strokeColor=#82b366;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1470" y="160" as="sourcePoint" />
+        <mxPoint x="1470" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="ll3_mail" value="" style="dashed=1;strokeColor=#b85450;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1610" y="160" as="sourcePoint" />
+        <mxPoint x="1610" y="560" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Forgot password steps -->
+    <mxCell id="fp1" value="Enter email" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1130" y="210" as="sourcePoint" />
+        <mxPoint x="1300" y="210" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp2" value="POST /api/auth/forgot-password" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1300" y="240" as="sourcePoint" />
+        <mxPoint x="1470" y="240" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp3" value="findOne({ email }) + generate reset token" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1470" y="270" as="sourcePoint" />
+        <mxPoint x="1470" y="270" as="targetPoint" />
+        <Array as="points">
+          <mxPoint x="1510" y="270" />
+          <mxPoint x="1510" y="290" />
+          <mxPoint x="1470" y="290" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp4" value="sendMail(resetUrl)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1470" y="320" as="sourcePoint" />
+        <mxPoint x="1610" y="320" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp5" value="Email sent" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1610" y="350" as="sourcePoint" />
+        <mxPoint x="1470" y="350" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp6" value="Password reset email sent" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1470" y="380" as="sourcePoint" />
+        <mxPoint x="1300" y="380" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp7" value="Click reset link in email" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1130" y="420" as="sourcePoint" />
+        <mxPoint x="1300" y="420" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp8" value="POST /api/auth/reset-password/:token" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1300" y="450" as="sourcePoint" />
+        <mxPoint x="1470" y="450" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp9" value="Validate token + update password" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1470" y="480" as="sourcePoint" />
+        <mxPoint x="1470" y="480" as="targetPoint" />
+        <Array as="points">
+          <mxPoint x="1510" y="480" />
+          <mxPoint x="1510" y="500" />
+          <mxPoint x="1470" y="500" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="fp10" value="Password reset successful" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;fontSize=11;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint x="1470" y="530" as="sourcePoint" />
+        <mxPoint x="1130" y="530" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
